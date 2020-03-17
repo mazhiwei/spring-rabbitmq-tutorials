@@ -24,7 +24,10 @@ public class MultipleListener {
   }
 
   private void receive(int receiver, Integer id) {
-    LOGGER.debug("received id: {}, receiver: {}.", id, receiver);
-    ResponseMessage.put(id, "Multiple Handler " + receiver + ".");
+    StringBuilder builder = new StringBuilder(64);
+    builder.append("receiver: ").append(receiver).append(" received request ").append(id);
+    String response = builder.toString();
+    LOGGER.debug(response);
+    ResponseMessage.put(id, response);
   }
 }

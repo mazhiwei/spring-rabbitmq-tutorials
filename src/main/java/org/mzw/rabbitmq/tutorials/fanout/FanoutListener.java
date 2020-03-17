@@ -1,6 +1,6 @@
 package org.mzw.rabbitmq.tutorials.fanout;
 
-import org.mzw.rabbitmq.tutorials.direct.DirectReceiver;
+import org.mzw.rabbitmq.tutorials.direct.DirectListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
 
 @Component
-public class FanoutReceiver {
-  private static final Logger LOGGER = LoggerFactory.getLogger(DirectReceiver.class);
+public class FanoutListener {
+  private static final Logger LOGGER = LoggerFactory.getLogger(DirectListener.class);
 
   @RabbitListener(queues = "#{fanoutQueue1.name}")
   public void receive1(String in) throws InterruptedException {

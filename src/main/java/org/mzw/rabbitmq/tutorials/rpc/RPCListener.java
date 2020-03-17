@@ -4,7 +4,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 @Component
-public class RPCReceiver {
+public class RPCListener {
   @RabbitListener(queues = "tutorials.rpc.requests")
   // @SendTo("tut.rpc.replies") used when the client doesn't set replyTo.
   public int fibonacci(int n) {

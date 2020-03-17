@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
 
 @Component
-public class TopicReceiver {
-  private static final Logger LOGGER = LoggerFactory.getLogger(TopicReceiver.class);
+public class TopicListener {
+  private static final Logger LOGGER = LoggerFactory.getLogger(TopicListener.class);
 
   @RabbitListener(queues = "#{topicQueue1.name}")
   public void receive1(String in) throws InterruptedException {

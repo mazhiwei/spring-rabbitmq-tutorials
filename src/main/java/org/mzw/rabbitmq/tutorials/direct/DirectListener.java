@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
 
 @Component
-public class DirectReceiver {
-  private static final Logger LOGGER = LoggerFactory.getLogger(DirectReceiver.class);
+public class DirectListener {
+  private static final Logger LOGGER = LoggerFactory.getLogger(DirectListener.class);
 
   @RabbitListener(queues = "#{autoDeleteQueue1.name}")
 //  @RabbitHandler

@@ -8,8 +8,8 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MultipleHandler {
-  private static final Logger LOGGER = LoggerFactory.getLogger(MultipleHandler.class);
+public class MultipleListener {
+  private static final Logger LOGGER = LoggerFactory.getLogger(MultipleListener.class);
 
   @RabbitHandler
   @RabbitListener(queues = "#{mutipleQueue.name}")
@@ -23,8 +23,8 @@ public class MultipleHandler {
     receive(2, id);
   }
 
-  private void receive(int handlerId, Integer id) {
-    LOGGER.debug("received id: {}, handler id: {}.", id, handlerId);
-    ResponseMessage.put(id, "Multiple Handler " + handlerId + ".");
+  private void receive(int receiver, Integer id) {
+    LOGGER.debug("received id: {}, receiver: {}.", id, receiver);
+    ResponseMessage.put(id, "Multiple Handler " + receiver + ".");
   }
 }

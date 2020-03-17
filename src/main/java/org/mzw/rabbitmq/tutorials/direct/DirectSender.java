@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class DirectSender implements RoutingSender {
-  private static final Logger Logger = LoggerFactory.getLogger(DirectSender.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(DirectSender.class);
   @Autowired
   private RabbitTemplate rabbitTemplate;
 
@@ -19,7 +19,7 @@ public class DirectSender implements RoutingSender {
 
   @Override
   public void send(String key, int id) {
-    Logger.debug("before send {}, key: {}.", id, key);
+    LOGGER.debug("send {}, key: {}.", id, key);
     rabbitTemplate.convertAndSend(direct.getName(), key, id);
   }
 

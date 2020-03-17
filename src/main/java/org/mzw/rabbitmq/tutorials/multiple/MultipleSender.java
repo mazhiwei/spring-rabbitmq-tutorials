@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class MultipleSender implements Sender {
-  private static final Logger Logger = LoggerFactory.getLogger(MultipleHandler.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(MultipleHandler.class);
   @Autowired
   private RabbitTemplate rabbitTemplate;
 
@@ -19,7 +19,7 @@ public class MultipleSender implements Sender {
 
   @Override
   public void send(int id) {
-    Logger.debug("before send {}.", id);
+    LOGGER.debug("send {}.", id);
     rabbitTemplate.convertAndSend(mutipleQueue.getName(), id);
   }
 

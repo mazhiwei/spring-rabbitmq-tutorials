@@ -12,7 +12,7 @@ public class FanoutController {
   @Autowired
   private Sender fanoutSender;
 
-  @GetMapping("/fanout-send")
+  @GetMapping("/fanout")
   public SendResponse fanout() {
     int id = RequestId.next();
     fanoutSender.send(id);

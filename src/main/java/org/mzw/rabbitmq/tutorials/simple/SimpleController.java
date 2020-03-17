@@ -12,7 +12,7 @@ public class SimpleController {
   @Autowired
   private Sender simpleSender;
 
-  @GetMapping("/simple-send")
+  @GetMapping("/simple")
   public SendResponse send() {
     int id = RequestId.next();
     simpleSender.send(id);

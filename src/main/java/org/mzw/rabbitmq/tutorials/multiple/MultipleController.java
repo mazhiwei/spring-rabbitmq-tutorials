@@ -12,7 +12,7 @@ public class MultipleController {
   @Autowired
   private Sender multipleSender;
 
-  @GetMapping("/multiple-send")
+  @GetMapping("/multiple")
   public SendResponse send() {
     int id = RequestId.next();
     multipleSender.send(id);

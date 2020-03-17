@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class MultipleSender implements Sender {
-  private static final Logger LOGGER = LoggerFactory.getLogger(MultipleHandler.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(MultipleSender.class);
   @Autowired
   private RabbitTemplate rabbitTemplate;
 

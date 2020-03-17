@@ -19,7 +19,7 @@ public class MultipleSender implements Sender {
 
   @Override
   public void send(int id) {
-    LOGGER.debug("send {}.", id);
+    LOGGER.debug("send id: {}", id);
     rabbitTemplate.convertAndSend(mutipleQueue.getName(), id);
   }
 

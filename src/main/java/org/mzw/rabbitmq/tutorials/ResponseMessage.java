@@ -13,9 +13,19 @@ public class ResponseMessage {
     map.put(key, value);
   }
 
-  public static String build(int receiver, Integer id) {
+  private static StringBuilder initializeBuilder(Class<?> clazz, Integer id) {
     StringBuilder builder = new StringBuilder(64);
-    builder.append("receiver: ").append(receiver).append(" received request ").append(id);
+    builder.append(clazz.getSimpleName()).append(" received request ").append(id);
+    return builder;
+  }
+
+  public static String build(Class<?> clazz, Integer id) {
+    return initializeBuilder(clazz, id).toString();
+  }
+
+  public static String build(Class<?> clazz, Integer id, int receiver) {
+    StringBuilder builder = initializeBuilder(clazz, id);
+    builder.append(", receiver: ").append(receiver);
     return builder.toString();
   }
 }

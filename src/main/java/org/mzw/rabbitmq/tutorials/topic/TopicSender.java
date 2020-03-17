@@ -19,7 +19,7 @@ public class TopicSender implements RoutingSender {
 
   @Override
   public void send(String key, int id) {
-    LOGGER.debug("send key: {}, id: {}.", key, id);
+    LOGGER.debug("send id: {}, key: {}", id, key);
     rabbitTemplate.convertAndSend(topic.getName(), key, id);
   }
 }

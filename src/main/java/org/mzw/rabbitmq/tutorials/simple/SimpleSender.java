@@ -18,7 +18,7 @@ public class SimpleSender implements Sender {
 
   @Override
   public void send(int id) {
-    LOGGER.debug("send {}.", id);
+    LOGGER.debug("send id: {}", id);
     rabbitTemplate.convertAndSend(simpleQueue.getName(), id);
   }
 

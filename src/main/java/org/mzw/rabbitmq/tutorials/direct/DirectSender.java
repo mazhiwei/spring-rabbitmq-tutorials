@@ -19,7 +19,7 @@ public class DirectSender implements RoutingSender {
 
   @Override
   public void send(String key, int id) {
-    LOGGER.debug("send {}, key: {}.", id, key);
+    LOGGER.debug("send id: {}, key: {}", id, key);
     rabbitTemplate.convertAndSend(direct.getName(), key, id);
   }
 

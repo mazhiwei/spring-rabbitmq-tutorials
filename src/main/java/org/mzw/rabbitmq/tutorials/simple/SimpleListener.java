@@ -14,7 +14,8 @@ public class SimpleListener {
   @RabbitHandler
   @RabbitListener(queues = "#{simpleQueue.name}")
   public void receive(Integer id) {
-    LOGGER.debug("received id: {}.", id);
-    ResponseMessage.put(id, "Simple Handler.");
+    String message = ResponseMessage.build(SimpleListener.class, id);
+    LOGGER.debug(message);
+    ResponseMessage.put(id, message);
   }
 }

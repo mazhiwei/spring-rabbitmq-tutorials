@@ -24,8 +24,8 @@ public class MultipleListener {
   }
 
   private void receive(int receiver, Integer id) {
-    String response = ResponseMessage.build(receiver, id);
-    LOGGER.debug(response);
-    ResponseMessage.put(id, response);
+    String message = ResponseMessage.build(MultipleListener.class, id, receiver);
+    LOGGER.debug(message);
+    ResponseMessage.put(id, message);
   }
 }

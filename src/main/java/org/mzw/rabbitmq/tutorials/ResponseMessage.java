@@ -12,4 +12,10 @@ public class ResponseMessage {
   public static void put(Integer key, String value) {
     map.put(key, value);
   }
+
+  public static String build(int receiver, Integer id) {
+    StringBuilder builder = new StringBuilder(64);
+    builder.append("receiver: ").append(receiver).append(" received request ").append(id);
+    return builder.toString();
+  }
 }

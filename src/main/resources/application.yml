@@ -1,3 +1,14 @@
 spring:
   application:
     name: spring-rabbitmq-tutorials
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      simple:
+        retry:
+          enabled: true
+          max-attempts: 3
+          initial-interval: 3000

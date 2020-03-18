@@ -24,7 +24,7 @@ public class RetryPublisher {
     Message message = MessageBuilder.withBody(content.getBytes())
         .setDeliveryMode(MessageDeliveryMode.PERSISTENT)
         .setContentType(MessageProperties.CONTENT_TYPE_BYTES).build();
-    rabbitTemplate.convertAndSend(RetryConfig.NORMAL_EXCHANGE, "normal",
-        message);
+    rabbitTemplate.convertAndSend(RetryConfig.EMAIL_EXCHANGE,
+        RetryConfig.EMAIL_ROUTING_KEY, message);
   }
 }

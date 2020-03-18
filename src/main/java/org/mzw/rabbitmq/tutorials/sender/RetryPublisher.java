@@ -20,7 +20,7 @@ public class RetryPublisher {
 
   public void send() {
     LOGGER.debug("send messages");
-    String content = "retry: " + System.currentTimeMillis();
+    String content = "retry message at " + System.currentTimeMillis();
     Message message = MessageBuilder.withBody(content.getBytes())
         .setDeliveryMode(MessageDeliveryMode.PERSISTENT)
         .setContentType(MessageProperties.CONTENT_TYPE_BYTES).build();

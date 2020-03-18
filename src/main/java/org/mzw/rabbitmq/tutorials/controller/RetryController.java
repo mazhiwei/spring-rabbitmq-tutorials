@@ -12,16 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class RetryController {
   @Autowired
   private RetryPublisher publisher;
-//  @Autowired
-//  private RetryReceiver receiver;
 
   @GetMapping("/retry-send")
   public void send() throws IOException, TimeoutException {
     publisher.send();
   }
-
-//  @GetMapping("/retry-receive")
-//  public void receive() throws IOException, TimeoutException {
-//    receiver.receiver();
-//  }
 }

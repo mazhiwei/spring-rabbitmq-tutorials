@@ -23,13 +23,21 @@ public class RetryReceiver {
   private RabbitTemplate rabbitTemplate;
 
   @RabbitListener(queues = "#{normalQueue.name}")
-  public void receiver(Message message) throws IOException, TimeoutException {
+  public void processNormalMessage(Message message)
+      throws IOException, TimeoutException {
     try {
       work(message.getBody());
     } catch (Exception e) {
       LOGGER.warn("failed to process message: {}", e.getMessage());
       retry(message);
     }
+  }
+
+  @RabbitListener(queues = "#{failedQueue.name}")
+  public void processFailedMessage(Message message)
+      throws IOException, TimeoutException {
+    LOGGER.error("failed to process message: {}, {}",
+        new String(message.getBody(), "utf-8"), message.getMessageProperties());
   }
 
   private void work(byte[] body) throws IOException {
